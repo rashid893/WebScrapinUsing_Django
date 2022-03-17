@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+      
+    <title>Web Scraper</title>
+
+</head>
+<body>
+<br>
+<br>
+<div class="container">
+  <h2> Link Collector</h2><br>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="" method='post'>
+                {% csrf_token %}
+                <input type="text" class="form-control" name='ss' id="site" placeholder="Enter url Address">
+            </div>
+            <div class="col-md-1">
+                <input type="submit" class="btn btn-primary">
+            </div>
+            </form>
+            <a class='btn btn-warning' href=""> Delete</a>
+
+
+
+   
+
+
+
+    </div>
+
+   <br>
+   <br>
+   
+    <table class="table">
+        <thead class="thead-dark">
+
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Link</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+            {% for link in data %}
+          <tr>
+          
+            <td>{{link.id}}</td>
+            <td>{{link.name}}<td>
+            <td>{{link.address}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+
+
+
+    </div>
+</div>
+
+    <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>
